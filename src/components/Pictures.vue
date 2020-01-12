@@ -4,8 +4,7 @@
     <section v-if='this.pictures.length' >
       <ul>
       <li v-for="picture in pictures">
-      <h2>this is a list item picture</h2>
-        <img :src="picture.urls.regular" :key="picture.id" :alt="picture.alt_description"/>
+        <img :src="picture.urls.regular" :key="picture.id" :alt="picture.alt_description" width="300px"/>
       </li>
       </ul>
     </section>
