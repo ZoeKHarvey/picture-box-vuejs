@@ -9,6 +9,7 @@
 
 <script>
 import Pictures from './components/Pictures.vue'
+import getPictures from '../apiCalls.js'
 
 export default {
   name: 'app',
@@ -18,6 +19,7 @@ export default {
   data() {
     return {
       pictures: [],
+      searchWord: ''
     }
   },
 
@@ -25,15 +27,20 @@ export default {
     this.getPictures()
   },
   methods: {
-    async getPictures() {
+     searchPictures: async function (e) {
+      e.preventDefault()
       try {
-        const response = await fetch(https://api.unsplash.com/photos)
-      } catch(error) {
-        console.log(error)
+        const result = await getPictures(this.word)
+        this.pictures = result
+        this.searchWord = ''
+      } catch (error) {
+        window.console.log(error)
       }
     }
   }
-}
+
+  }
+
 </script>
 
 <style>
