@@ -28,9 +28,8 @@ export default {
   methods: {
      searchPictures: async function () {
       try {
-        const data = await getPictures(this.searchWord);
+        const data = await getPictures(this.searchWord, this.currentPage);
         this.pictures = data.results
-        this.searchWord = '';
       } catch (error) {
         window.console.log('error in catch', error)
       }
@@ -40,10 +39,12 @@ export default {
       this.searchPictures({preventDefault: () => {}})
     },
     switchToNextPage: function (page) {
-      this.currentPage = this.currentPage++
+      this.currentPage = this.currentPage += 1
+      this.searchPictures()
     },
     switchToPrevPage: function (page) {
       this.currentPage = this.currentPage--
+      
     }
 
   
