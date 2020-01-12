@@ -2,14 +2,14 @@
   <div id="app">
     <h1>Picture Box</h1>
     <input/>
-    <button>Search</button>
+    <button @click="searchPictures">Search</button>
     <pictures :picturs="pictures" />
   </div>
 </template>
 
 <script>
 import Pictures from './components/Pictures.vue'
-import getPictures from '../apiCalls.js'
+import { getPictures } from '../apiCalls.js'
 
 export default {
   name: 'app',
@@ -24,17 +24,17 @@ export default {
   },
 
   mounted() {
-    this.getPictures()
+
   },
   methods: {
-     searchPictures: async function (e) {
-      e.preventDefault()
+     searchPictures: async function () {
       try {
-        const result = await getPictures(this.word)
-        this.pictures = result
-        this.searchWord = ''
+        const result = await getPictures();
+        window.console.log(result)
+        this.pictures = result;
+        this.searchWord = '';
       } catch (error) {
-        window.console.log(error)
+        window.console.log('error in catch', error)
       }
     }
   }
