@@ -1,12 +1,12 @@
 <template>
   <div>
     <h1 v-if='!this.pictures.length'>Enter a search word above to see pictures</h1>
-    <section v-if='this.pictures.length' >
-      <ul>
-      <li v-for="picture in pictures">
-        <img :src="picture.urls.regular" :key="picture.id" :alt="picture.alt_description" width="300px"/>
-      </li>
-      </ul>
+    <section class="section__pictures" v-if='this.pictures.length' >
+      
+      
+        <img v-for="picture in pictures" :src="picture.urls.regular" :key="picture.id" :alt="picture.alt_description" />
+     
+     
     </section>
   </div>
 </template>
@@ -26,18 +26,26 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+
+.section__pictures {
+display: flex;
+overflow: scroll;
+justify-content: space-evenly;
+height: 75vh;
+    flex-wrap: wrap;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+img {
+  max-width: 50%;
+    height: 37vh;
+    margin-top: 10px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+img:hover {
+  transform: scale(1.2); 
+  cursor: pointer;
+  box-shadow: 0px 0px 59px 6px rgba(0,0,0,1);
 }
-a {
-  color: #42b983;
-}
+
+
+
 </style>
