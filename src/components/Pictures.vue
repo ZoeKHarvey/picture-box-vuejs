@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Enter a search word above to see pictures</h1>
+    <h1 v-if='!this.pictures.length'>Enter a search word above to see pictures</h1>
     <section v-if='this.pictures.length' >
       <ul>
       <li v-for="picture in pictures">
