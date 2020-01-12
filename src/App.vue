@@ -22,10 +22,6 @@ export default {
       searchWord: ''
     }
   },
-
-  mounted() {
-
-  },
   methods: {
      searchPictures: async function () {
       try {
@@ -36,6 +32,10 @@ export default {
       } catch (error) {
         window.console.log('error in catch', error)
       }
+    },
+    updateSearchWord: function (val) {
+      this.searchWord = val
+      this.searchPictures({preventDefault: () => {}})
     }
   }
 
