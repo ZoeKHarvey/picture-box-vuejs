@@ -1,8 +1,13 @@
 <template>
   <div>
     <h1>Enter a search word above to see pictures</h1>
-    <section v-if='!this.pictures.length'>
-    <img :src="this.pictures.results[0].urls.regular"/>
+    <section v-if='this.pictures.length' >
+      <ul>
+      <li v-for="picture in pictures">
+      <h2>this is a list item picture</h2>
+        <img :src="picture.urls.regular"/>
+      </li>
+      </ul>
     </section>
   </div>
 </template>
@@ -11,6 +16,12 @@
 export default {
   name: 'Pictures',
   props: ['pictures', 'updateSearchWord'],
+  methods: {
+    displayPhotos: function () {
+      window.console.log('in pictures', this.pictures)
+      return this.pictures.map(pic => pic.results.urls.regular)
+    }
+  }
   } 
 </script>
 

@@ -25,9 +25,8 @@ export default {
   methods: {
      searchPictures: async function () {
       try {
-        const result = await getPictures(this.searchWord);
-        window.console.log(result)
-        this.pictures = result;
+        const data = await getPictures(this.searchWord);
+        this.pictures = data.results
         this.searchWord = '';
       } catch (error) {
         window.console.log('error in catch', error)
@@ -37,9 +36,10 @@ export default {
       this.searchWord = val
       this.searchPictures({preventDefault: () => {}})
     }
-  }
+  
 
   }
+}
 
 </script>
 
