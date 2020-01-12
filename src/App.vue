@@ -4,6 +4,8 @@
     <input v-model='searchWord'/>
     <button @click="searchPictures">Search</button>
     <pictures :pictures="pictures" />
+    <button @click="switchToPrevPage">Previous</button>
+    <button @click="switchToNextPage">Next</button>
   </div>
 </template>
 
@@ -19,7 +21,8 @@ export default {
   data() {
     return {
       pictures: [],
-      searchWord: ''
+      searchWord: '',
+      currentPage: 1
     }
   },
   methods: {
@@ -35,7 +38,14 @@ export default {
     updateSearchWord: function (val) {
       this.searchWord = val
       this.searchPictures({preventDefault: () => {}})
+    },
+    switchToNextPage: function (page) {
+      this.currentPage = this.currentPage++
+    },
+    switchToPrevPage: function (page) {
+      this.currentPage = this.currentPage--
     }
+
   
 
   }
