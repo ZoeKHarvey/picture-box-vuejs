@@ -38,12 +38,13 @@ height: 75vh;
 img {
   max-width: 50%;
     height: 37vh;
-    margin-top: 10px;
+    margin-top: 20px;
+    border-radius: 25%;
 }
 img:hover {
   transform: scale(1.2); 
-  cursor: pointer;
-  box-shadow: 0px 0px 59px 6px rgba(0,0,0,1);
+  box-shadow: 0px 0px 14px 13px rgba(0,0,0,0.75);
+  border-radius: 0
 }
 
 
