@@ -5,7 +5,7 @@
       <ul>
       <li v-for="picture in pictures">
       <h2>this is a list item picture</h2>
-        <img :src="picture.urls.regular"/>
+        <img :src="picture.urls.regular" :key="picture.id" :alt="picture.alt_description"/>
       </li>
       </ul>
     </section>
