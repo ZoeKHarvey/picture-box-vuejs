@@ -43,7 +43,8 @@ export default {
       this.searchPictures()
     },
     switchToPrevPage: function (page) {
-      this.currentPage = this.currentPage--
+      this.currentPage = this.currentPage += 1
+      this.searchPictures()
       
     }
 
