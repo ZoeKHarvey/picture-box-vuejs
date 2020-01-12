@@ -1,19 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Picture Box</h1>
+    <input v-model='searchWord'/>
+    <button @click="searchPictures">Search</button>
+    <pictures :picturs="pictures" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Pictures from './components/Pictures.vue'
+import { getPictures } from '../apiCalls.js'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Pictures
+  },
+  data() {
+    return {
+      pictures: [],
+      searchWord: ''
+    }
+  },
+
+  mounted() {
+
+  },
+  methods: {
+     searchPictures: async function () {
+      try {
+        const result = await getPictures(this.searchWord);
+        window.console.log(result)
+        this.pictures = result;
+        this.searchWord = '';
+      } catch (error) {
+        window.console.log('error in catch', error)
+      }
+    }
   }
-}
+
+  }
+
 </script>
 
 <style>
