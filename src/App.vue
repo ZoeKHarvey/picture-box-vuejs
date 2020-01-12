@@ -1,17 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Picture Box</h1>
+    <input/>
+    <button>Search</button>
+    <pictures :picturs="pictures" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Pictures from './components/Pictures.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Pictures
+  },
+  data() {
+    return {
+      pictures: [],
+    }
+  },
+
+  mounted() {
+    this.getPictures()
+  },
+  methods: {
+    async getPictures() {
+      try {
+        const response = await fetch(https://api.unsplash.com/photos)
+      } catch(error) {
+        console.log(error)
+      }
+    }
   }
 }
 </script>
