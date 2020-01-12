@@ -1,14 +1,17 @@
 <template>
-  <div class="div__pictures">
-    <h1>Enter a search word above to see pictures"
+  <div>
+    <h1>Enter a search word above to see pictures</h1>
+    <section v-if='!this.pictures.length'>
+    <img :src="this.pictures.results[0].urls.regular"/>
+    </section>
   </div>
 </template>
 
-<script>
+<script type="application/javascript">
 export default {
   name: 'Pictures',
-  props: ['pictures', updateSearchWord], 
-}
+  props: ['pictures', 'updateSearchWord'],
+  } 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -3,7 +3,7 @@
     <h1>Picture Box</h1>
     <input v-model='searchWord'/>
     <button @click="searchPictures">Search</button>
-    <pictures :picturs="pictures" />
+    <pictures :pictures="pictures" />
   </div>
 </template>
 
