@@ -4,8 +4,8 @@
     <input v-model='searchWord'/>
     <button @click="searchPictures">Search</button>
     <pictures :pictures="pictures" />
-    <button @click="switchToPrevPage">Previous</button>
-    <button @click="switchToNextPage">Next</button>
+    <button v-if='this.pictures.length' @click="switchToPrevPage">Previous</button>
+    <button v-if='this.pictures.length' @click="switchToNextPage">Next</button>
   </div>
 </template>
 
