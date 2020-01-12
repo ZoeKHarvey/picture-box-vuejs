@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Picture Box</h1>
-    <input/>
+    <input v-model='searchWord'/>
     <button @click="searchPictures">Search</button>
     <pictures :picturs="pictures" />
   </div>
@@ -29,7 +29,7 @@ export default {
   methods: {
      searchPictures: async function () {
       try {
-        const result = await getPictures();
+        const result = await getPictures(this.searchWord);
         window.console.log(result)
         this.pictures = result;
         this.searchWord = '';
