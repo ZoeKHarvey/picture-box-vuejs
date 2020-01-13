@@ -3,7 +3,11 @@
     <h1>Picture Box</h1>
     <input v-model='searchWord'/>
     <button @click="searchPictures">Search</button>
+    <button v-if='this.pictures.length' @click="decreasePerPage">-</button>
+    <button v-if='this.pictures.length' @click="increasePerPage">+</button>
     <pictures :pictures="pictures" />
+    <button v-if='this.pictures.length' @click="switchToPrevPage">Previous</button>
+    <button v-if='this.pictures.length' @click="switchToNextPage">Next</button>
   </div>
 </template>
 
@@ -19,15 +23,16 @@ export default {
   data() {
     return {
       pictures: [],
-      searchWord: ''
+      searchWord: '',
+      currentPage: 1,
+      perPage: 10
     }
   },
   methods: {
      searchPictures: async function () {
       try {
-        const data = await getPictures(this.searchWord);
+        const data = await getPictures(this.searchWord, this.currentPage, this.perPage);
         this.pictures = data.results
-        this.searchWord = '';
       } catch (error) {
         window.console.log('error in catch', error)
       }
@@ -35,7 +40,25 @@ export default {
     updateSearchWord: function (val) {
       this.searchWord = val
       this.searchPictures({preventDefault: () => {}})
+    },
+    switchToNextPage: function (page) {
+      this.currentPage = this.currentPage += 1
+      this.searchPictures()
+    },
+    switchToPrevPage: function (page) {
+      this.currentPage = this.currentPage -= 1
+      this.searchPictures()
+      
+    },
+    decreasePerPage: function () { 
+      this.perPage = this.perPage -= 5
+      this.searchPictures()
+    },
+    increasePerPage: function() {
+      this.perPage = this.perPage += 5
+      this.searchPictures()
     }
+
   
 
   }
@@ -51,5 +74,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  height: 100vh;
 }
 </style>
