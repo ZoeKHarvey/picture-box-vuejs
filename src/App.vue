@@ -1,11 +1,15 @@
 <template>
   <div id="app">
-    <h1>Picture Box</h1>
-    <input v-model='searchWord'/>
-    <button @click="searchPictures">Search</button>
-    <button v-if='this.pictures.length' @click="decreasePerPage">-</button>
-    <button v-if='this.pictures.length' @click="increasePerPage">+</button>
+    <div class="header">
+    <h1 class="h1__title">Picture Box</h1>
+    <div class="div__search">
+      <input class="search" v-model='searchWord' placeholder="Search"/>
+      <img :src="require('../search.png')" class="search__btn" @click="searchPictures" />
+    </div>
+    </div>
     <pictures :pictures="pictures" />
+        <button v-if='this.pictures.length' @click="decreasePerPage">-</button>
+    <button v-if='this.pictures.length' @click="increasePerPage">+</button>
     <button v-if='this.pictures.length' @click="switchToPrevPage">Previous</button>
     <button v-if='this.pictures.length' @click="switchToNextPage">Next</button>
   </div>
@@ -14,6 +18,7 @@
 <script>
 import Pictures from './components/Pictures.vue'
 import { getPictures } from '../apiCalls.js'
+
 
 export default {
   name: 'app',
@@ -33,6 +38,7 @@ export default {
       try {
         const data = await getPictures(this.searchWord, this.currentPage, this.perPage);
         this.pictures = data.results
+        document.querySelector('.search').val === ''
       } catch (error) {
         window.console.log('error in catch', error)
       }
@@ -58,22 +64,65 @@ export default {
       this.perPage = this.perPage += 5
       this.searchPictures()
     }
-
-  
-
   }
 }
 
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100&display=swap');
+
+.h1__title {
+  font-family: 'Satisfy', cursive;
+  background-color: rgb(62,150,168);
+  color: white;
+  border: 1px solid;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.search {
+    width: 195px;
+    height: 4vh;
+    border-radius: 25px;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 10px;
+}
+
+.header {
+  display: flex;
+  background-color: rgb(62,150,168);
+  justify-content: space-between
+}
+
+
+.search__btn {
+  max-width: 15%
+}
+
+.div__search {
+  display: flex;
+  align-items: center;
+  width: 27%
+}
+
+.search__btn:hover {
+ transform: scale(1.2);
+ cursor: pointer;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
   height: 100vh;
 }
+
+
+
 </style>
