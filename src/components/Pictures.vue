@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="h1__prompt" v-if='!this.pictures.length'>Enter a search word above to see pictures</h1>
+    <h1 class="h1__prompt" v-if='!this.pictures.length'>Enter a word to see some pictures!</h1>
     <section class="section__pictures" v-if='this.pictures.length' >
         <img v-for="picture in pictures" :src="picture.urls.regular" :key="picture.id" :alt="picture.alt_description" />
     </section>
@@ -49,7 +49,8 @@ img:hover {
 }
 
 .h1__prompt {
-font-family: 'Montserrat', sans-serif
+font-family: 'Montserrat', sans-serif;
+margin-top: 17%
 }
 
 
