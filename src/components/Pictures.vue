@@ -30,6 +30,7 @@ overflow: scroll;
 justify-content: space-evenly;
 height: 75vh;
     flex-wrap: wrap;
+    border-bottom: 1px solid #D1D5DA;
 }
 
 img {
@@ -37,11 +38,14 @@ img {
     height: 37vh;
     margin-top: 20px;
     border-radius: 89px;
+    opacity: .8
 }
 img:hover {
   transform: scale(1.2); 
   box-shadow: 0px 0px 14px 13px rgba(0,0,0,0.75);
-  border-radius: 0
+  border-radius: 0;
+  opacity: 1;
+  z-index:2
 }
 
 .h1__prompt {
