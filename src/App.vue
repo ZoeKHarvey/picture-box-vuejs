@@ -38,6 +38,7 @@ export default {
       try {
         const data = await getPictures(this.searchWord, this.currentPage, this.perPage);
         this.pictures = data.results
+        document.querySelector('.search').val === ''
       } catch (error) {
         window.console.log('error in catch', error)
       }
@@ -63,9 +64,6 @@ export default {
       this.perPage = this.perPage += 5
       this.searchPictures()
     }
-
-  
-
   }
 }
 
@@ -79,7 +77,9 @@ export default {
   font-family: 'Satisfy', cursive;
   background-color: rgb(62,150,168);
   color: white;
-  border-bottom: 1px solid
+  border: 1px solid;
+  margin-left: 20px;
+  padding: 5px;
 }
 
 .search {
@@ -88,6 +88,7 @@ export default {
     border-radius: 25px;
     font-size: 1.2em;
     font-family: 'Montserrat', sans-serif;
+    padding-left: 10px;
 }
 
 .header {
@@ -98,7 +99,7 @@ export default {
 
 
 .search__btn {
-  max-width: 17%
+  max-width: 15%
 }
 
 .div__search {
@@ -108,7 +109,8 @@ export default {
 }
 
 .search__btn:hover {
-  background-color: pink;
+ transform: scale(1.2);
+ cursor: pointer;
 }
 
 #app {
