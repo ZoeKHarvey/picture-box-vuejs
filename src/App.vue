@@ -8,10 +8,12 @@
     </div>
     </div>
     <pictures :pictures="pictures" />
-        <button v-if='this.pictures.length' @click="decreasePerPage">-</button>
-    <button v-if='this.pictures.length' @click="increasePerPage">+</button>
-    <button v-if='this.pictures.length' @click="switchToPrevPage">Previous</button>
-    <button v-if='this.pictures.length' @click="switchToNextPage">Next</button>
+    <div class="div__footer">
+    <button v-if='this.pictures.length' @click="switchToPrevPage" class="btm-btn" id="prv-pg" >Previous</button>
+    <button v-if='this.pictures.length' @click="decreasePerPage" class="btm-btn" id="less">-5 per page</button>
+    <button v-if='this.pictures.length' @click="increasePerPage" class="btm-btn" id="more">+5 per page</button>
+    <button v-if='this.pictures.length' @click="switchToNextPage" class="btm-btn" id="nxt-pg">Next</button>
+    </div>
   </div>
 </template>
 
@@ -94,7 +96,8 @@ export default {
 .header {
   display: flex;
   background-color: rgb(62,150,168);
-  justify-content: space-between
+  justify-content: space-between;
+  border-bottom: 2px solid #D1D5DA
 }
 
 
@@ -111,6 +114,29 @@ export default {
 .search__btn:hover {
  transform: scale(1.2);
  cursor: pointer;
+}
+
+.div__footer {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.btm-btn {
+  width: 10%;
+    height: 4vh;
+    border-radius: 15px;
+    font-size: 1.01em;
+    margin-top: 18px;
+     font-family: 'Montserrat', sans-serif;
+}
+
+.btm-btn:hover {
+  background-color: rgb(62,150,168);
+  color: white;
+  transform: scale(1.1);
+  cursor: pointer;
+  font-weight: bold;
 }
 
 #app {

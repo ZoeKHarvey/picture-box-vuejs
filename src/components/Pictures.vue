@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="h1__prompt" v-if='!this.pictures.length'>Enter a search word above to see pictures</h1>
+    <h1 class="h1__prompt" v-if='!this.pictures.length'>Enter a word to see some pictures!</h1>
     <section class="section__pictures" v-if='this.pictures.length' >
         <img v-for="picture in pictures" :src="picture.urls.regular" :key="picture.id" :alt="picture.alt_description" />
     </section>
@@ -30,6 +30,7 @@ overflow: scroll;
 justify-content: space-evenly;
 height: 75vh;
     flex-wrap: wrap;
+    border-bottom: 1px solid #D1D5DA;
 }
 
 img {
@@ -37,15 +38,19 @@ img {
     height: 37vh;
     margin-top: 20px;
     border-radius: 89px;
+    opacity: .8
 }
 img:hover {
   transform: scale(1.2); 
   box-shadow: 0px 0px 14px 13px rgba(0,0,0,0.75);
-  border-radius: 0
+  border-radius: 0;
+  opacity: 1;
+  z-index:2
 }
 
 .h1__prompt {
-font-family: 'Montserrat', sans-serif
+font-family: 'Montserrat', sans-serif;
+margin-top: 17%
 }
 
 
