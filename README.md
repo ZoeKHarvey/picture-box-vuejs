@@ -5,7 +5,8 @@ Picture box is built with the Unsplash API and Vue.js to allow users a simple wa
 Just search a word (or a few) and enjoy close-to-endless results!
 
 ## Screen Recording
-![photo-box](https://user-images.githubusercontent.com/50784336/72231162-1224bf80-3577-11ea-9047-e7d795d3bd8b.gif)
+![photo-box](https://user-images.githubusercontent.com/50784336/72231512-1ce05400-3579-11ea-8076-96ca0f97a32d.gif)
+
 
 ## Project setup
 ```
