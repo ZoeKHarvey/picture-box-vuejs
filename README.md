@@ -10,25 +10,19 @@ Just search a word (or a few) and enjoy close-to-endless results!
 ![photo-box](https://user-images.githubusercontent.com/50784336/72231512-1ce05400-3579-11ea-8076-96ca0f97a32d.gif)
 
 
-## Project setup
-```
-npm install
-```
+## Tech
+Vue.js
+Unsplash API
+eslint
+SCSS
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Local Project Setup
+* To set up locally
 
-### Compiles and minifies for production
-```
-npm run build
-```
+* git clone
 
-### Lints and fixes files
-```
-npm run lint
-```
+* npm install
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* npm run serve
+
+* Visit app at: localhost:8080
